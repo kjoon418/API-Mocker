@@ -1,8 +1,9 @@
 package framework.exception
 
 class IllegalRequestException(
-    message: String
+    message: String,
+    code: Int = 400
 ) : ResponsibleException(
-    code = 400,
+    code = code,
     message = message
 )
