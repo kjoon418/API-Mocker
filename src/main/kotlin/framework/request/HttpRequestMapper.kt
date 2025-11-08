@@ -43,8 +43,9 @@ class HttpRequestMapper : RequestMapper<HttpServletRequest> {
         get() {
             val headers = mutableMapOf<String, List<String>>()
 
-            while (headerNames.hasMoreElements()) {
-                val name = headerNames.nextElement()
+            val names = headerNames
+            while (names.hasMoreElements()) {
+                val name = names.nextElement()
                 headers[name] = getHeaders(name).toList()
             }
 
