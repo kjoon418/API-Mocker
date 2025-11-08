@@ -12,10 +12,10 @@ class Servlet(
     private val responseWriter: HttpResponseWriter,
     private val dispatcher: Dispatcher
 ) : HttpServlet() {
-    override fun service(request: HttpServletRequest?, response: HttpServletResponse?) {
-        val requestData = requestMapper.map(request!!)
+    override fun service(request: HttpServletRequest, response: HttpServletResponse) {
+        val requestData = requestMapper.map(request)
         val responseData = dispatcher.dispatch(requestData)
 
-        responseWriter.write(response!!, responseData)
+        responseWriter.write(response, responseData)
     }
 }
