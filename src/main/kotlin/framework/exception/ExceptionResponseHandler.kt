@@ -1,8 +1,8 @@
 package framework.exception
 
+import framework.constants.HttpStatus
 import framework.dto.Response
 import org.slf4j.LoggerFactory
-import kotlin.Exception
 
 class ExceptionResponseHandler {
     private val log = LoggerFactory.getLogger(ExceptionResponseHandler::class.java)
@@ -11,17 +11,17 @@ class ExceptionResponseHandler {
         log.warn(exception.stackTraceToString())
 
         return Response(
-            code = exception.statusCode,
+            status = exception.statusCode,
             contentType = "text/plain",
             body = exception.stackTraceToString()
         )
     }
 
-    private val Exception.statusCode: Int
+    private val Exception.statusCode: HttpStatus
         get() {
             return when (this) {
-                is ResponsibleException -> code
-                else -> 500
+                is ResponsibleException -> status
+                else -> HttpStatus.INTERNAL_SERVER_ERROR
             }
         }
 }

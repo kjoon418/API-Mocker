@@ -1,6 +1,8 @@
 package framework.action
 
+import framework.constants.HttpStatus
+
 data class ActionResponse<out R>(
-    val statusCode: Int,
+    val status: HttpStatus = HttpStatus.OK,
     val body: R?
 )

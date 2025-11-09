@@ -13,7 +13,7 @@ class JsonResponseMapper(
         val contentType = CONTENT_TYPE_JSON
 
         return Response(
-            code = actionResponse.statusCode,
+            status = actionResponse.status,
             contentType = contentType,
             body = jsonBody
         )

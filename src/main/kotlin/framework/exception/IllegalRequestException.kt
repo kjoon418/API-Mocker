@@ -1,9 +1,11 @@
 package framework.exception
 
+import framework.constants.HttpStatus
+
 class IllegalRequestException(
     message: String,
-    code: Int = 400
+    status: HttpStatus = HttpStatus.BAD_REQUEST
 ) : ResponsibleException(
-    code = code,
+    status = status,
     message = message
 )

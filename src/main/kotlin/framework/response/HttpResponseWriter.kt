@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse
 
 class HttpResponseWriter {
     fun write(httpResponse: HttpServletResponse, responseData: Response) {
-        httpResponse.status = responseData.code
+        httpResponse.status = responseData.status.code
         httpResponse.contentType = responseData.contentType
         httpResponse.characterEncoding = CHARACTER_ENCODING
 
