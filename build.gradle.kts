@@ -23,6 +23,9 @@ dependencies {
     // Reflections
     implementation("org.reflections:reflections:0.10.2")
 
+    // JWT
+    implementation("com.auth0:java-jwt:4.4.0")
+
     testImplementation(kotlin("test"))
 }
 
