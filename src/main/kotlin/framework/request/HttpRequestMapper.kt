@@ -5,6 +5,7 @@ import framework.dto.Request
 import framework.dto.RequestBody
 import framework.dto.RequestContext
 import jakarta.servlet.http.HttpServletRequest
+import java.util.TreeMap
 
 class HttpRequestMapper : RequestMapper<HttpServletRequest> {
     override fun map(request: HttpServletRequest): Request {
@@ -41,7 +42,7 @@ class HttpRequestMapper : RequestMapper<HttpServletRequest> {
 
     private val HttpServletRequest.headers: Map<String, List<String>>
         get() {
-            val headers = mutableMapOf<String, List<String>>()
+            val headers = TreeMap<String, List<String>>(String.CASE_INSENSITIVE_ORDER)
 
             val names = headerNames
             while (names.hasMoreElements()) {
