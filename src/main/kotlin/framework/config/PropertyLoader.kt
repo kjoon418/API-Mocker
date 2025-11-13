@@ -22,7 +22,6 @@ object PropertyLoader {
         }
     }
 
-
     fun get(key: String): Any? {
         val splitKey = key.split('.')
 
