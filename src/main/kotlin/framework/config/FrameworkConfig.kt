@@ -1,6 +1,9 @@
 package framework.config
 
 import framework.action.HttpActionScanner
+import framework.component.ComponentProvider
+import framework.component.ComponentScanner
+import framework.config.ConfigProperty.BasePackage
 import framework.dispatcher.Dispatcher
 import framework.exception.ExceptionResponseHandler
 import framework.repository.MemoryRepository
@@ -17,10 +20,8 @@ import framework.security.AuthorizationValidator
 import framework.server.HttpServer
 import framework.server.Server
 import framework.server.Servlet
-import framework.component.ComponentProvider
-import framework.component.ComponentScanner
 
-class FrameworkConfig {
+object FrameworkConfig {
     // Mapper
     private val requestMapper = HttpRequestMapper()
     private val responseMapper = JsonResponseMapper()
@@ -54,13 +55,13 @@ class FrameworkConfig {
     val server: Server
 
     init {
-        val repositoryBuilders = repositoryScanner.scan(BASE_PACKAGES)
+        val repositoryBuilders = repositoryScanner.scan(BasePackage.value)
         repositoryProvider.init(repositoryBuilders)
 
-        val components = componentScanner.scan(BASE_PACKAGES)
+        val components = componentScanner.scan(BasePackage.value)
         componentProvider.init(components)
 
-        val actions = actionScanner.scan(BASE_PACKAGES)
+        val actions = actionScanner.scan(BasePackage.value)
         router = DefaultRouter(actions)
 
         dispatcher = Dispatcher(

@@ -2,10 +2,8 @@ package framework
 
 import framework.config.FrameworkConfig
 
-private val frameworkConfig = FrameworkConfig()
-
 fun runWithFramework() {
-    val server = frameworkConfig.server
+    val server = FrameworkConfig.server
 
     server.run()
 }

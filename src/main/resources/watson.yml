@@ -1,0 +1,15 @@
+framework:
+  base-packages:
+    - "framework"
+    - "mocker"
+  encoding: "UTF-8"
+
+server:
+  port: 8080
+  base-dir: "tomcat-temp"
+  servlet-name: "ApiServlet"
+
+jwt:
+  secret: "watson-jwt-secret-key"
+  issuer: "watson-api"
+  expired-ms: 360000
