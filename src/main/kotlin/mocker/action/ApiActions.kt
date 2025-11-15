@@ -13,7 +13,11 @@ private val mockService = ComponentProvider.get(MockService::class.java)
     path = "/api/{userId}/{endPoint}"
 )
 class CallApi : Action<Unit, String> {
-    override fun act(request: Request, pathVariables: Map<String, String>, body: Unit): ActionResponse<String> {
+    override fun act(
+        request: Request,
+        pathVariables: Map<String, String>,
+        body: Unit
+    ): ActionResponse<String> {
         val userId = pathVariables["userId"]!!
         val endPoint = pathVariables["endPoint"]!!
         val method = request.requestContext.method
