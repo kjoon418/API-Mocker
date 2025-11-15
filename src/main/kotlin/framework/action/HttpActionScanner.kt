@@ -1,6 +1,7 @@
 package framework.action
 
 import framework.constants.HttpMethod
+import framework.exception.ApplicationConfigFailException
 import framework.router.PathTemplate
 import framework.router.RouteKey
 import org.reflections.Reflections
@@ -51,7 +52,7 @@ object HttpActionScanner : ActionScanner {
     private val Class<*>.httpActionAnnotation: HttpAction
         get() {
             return getAnnotation(HttpAction::class.java)
-                ?: error("$ANNOTATION_MISSING : $this")
+                ?: throw ApplicationConfigFailException("$ANNOTATION_MISSING : $this")
         }
 
     private fun instantiateAction(clazz: Class<*>): Action<*, *> {

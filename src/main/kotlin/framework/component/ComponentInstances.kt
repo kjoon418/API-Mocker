@@ -1,5 +1,7 @@
 package framework.component
 
+import framework.exception.ApplicationConfigFailException
+
 class ComponentInstances {
     private val instances = mutableMapOf<Class<*>, Any>()
 
@@ -29,7 +31,7 @@ class ComponentInstances {
 
     private fun validateDuplicate(key: Class<*>) {
         if (instances.containsKey(key)) {
-            throw IllegalStateException("$IMPLEMENTATION_DUPLICATE: ${key.name}")
+            throw ApplicationConfigFailException("$IMPLEMENTATION_DUPLICATE: ${key.name}")
         }
     }
 

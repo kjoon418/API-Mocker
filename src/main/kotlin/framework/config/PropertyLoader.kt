@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
+import framework.exception.ApplicationConfigFailException
 import java.io.InputStream
 
 object PropertyLoader {
@@ -37,7 +38,7 @@ object PropertyLoader {
 
     private fun connectYmlInputStream(): InputStream {
         return PropertyLoader::class.java.classLoader.getResourceAsStream(YML_NAME)
-            ?: throw IllegalStateException(YML_NOT_EXIST)
+            ?: throw ApplicationConfigFailException(YML_NOT_EXIST)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -1,5 +1,7 @@
 package framework.config
 
+import framework.exception.ApplicationConfigFailException
+
 sealed class ConfigProperty<T : Any>(
     val path: String,
     private val defaultValue: String? = null,
@@ -9,7 +11,7 @@ sealed class ConfigProperty<T : Any>(
         get() {
             val rawValue = PropertyLoader.get(path)
             val valueToMap = rawValue ?: defaultValue
-                ?: throw IllegalStateException("$PROPERTY_NOT_EXIST (path: $path)")
+                ?: throw ApplicationConfigFailException("$PROPERTY_NOT_EXIST (path: $path)")
 
             return valueMapper(valueToMap)
         }

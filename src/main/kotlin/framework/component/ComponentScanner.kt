@@ -1,5 +1,6 @@
 package framework.component
 
+import framework.exception.ApplicationConfigFailException
 import org.reflections.Reflections
 import java.lang.reflect.Modifier.isAbstract
 
@@ -41,7 +42,7 @@ class ComponentScanner {
         return try {
             getDeclaredConstructor().newInstance()
         } catch (e: NoSuchMethodException) {
-            throw IllegalStateException("${REQUIRE_NO_ARGS_CONSTRUCTOR}: ${this.name}")
+            throw ApplicationConfigFailException("${REQUIRE_NO_ARGS_CONSTRUCTOR}: ${this.name}")
         }
     }
 
