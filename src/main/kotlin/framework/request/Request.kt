@@ -1,4 +1,4 @@
-package framework.dto
+package framework.request
 
 data class Request(
     val requestContext: RequestContext,

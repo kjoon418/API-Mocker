@@ -1,4 +1,4 @@
-package framework.dto
+package framework.response
 
 import framework.constants.HttpStatus
 

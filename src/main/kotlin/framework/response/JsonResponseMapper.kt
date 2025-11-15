@@ -3,7 +3,6 @@ package framework.response
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import framework.action.ActionResponse
-import framework.dto.Response
 
 class JsonResponseMapper(
     private val objectMapper: ObjectMapper = jacksonObjectMapper()

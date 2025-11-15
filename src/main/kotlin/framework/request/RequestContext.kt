@@ -1,4 +1,4 @@
-package framework.dto
+package framework.request
 
 import framework.constants.HttpMethod
 

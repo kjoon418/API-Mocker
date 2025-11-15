@@ -4,7 +4,7 @@ import framework.action.Action
 import framework.action.ActionResponse
 import framework.action.HttpAction
 import framework.constants.HttpMethod
-import framework.dto.Request
+import framework.request.Request
 import framework.security.RequireAuthorize
 import framework.security.Role
 import framework.security.extractKey

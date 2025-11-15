@@ -4,7 +4,7 @@ import framework.action.Action
 import framework.action.ActionResponse
 import framework.action.HttpAction
 import framework.component.ComponentProvider
-import framework.dto.Request
+import framework.request.Request
 import mocker.service.MockService
 
 private val mockService = ComponentProvider.get(MockService::class.java)

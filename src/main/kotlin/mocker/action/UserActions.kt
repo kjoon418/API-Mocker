@@ -5,7 +5,7 @@ import framework.action.ActionResponse
 import framework.action.HttpAction
 import framework.constants.HttpMethod
 import framework.constants.HttpStatus
-import framework.dto.Request
+import framework.request.Request
 import framework.component.ComponentProvider
 import mocker.dto.response.TokenDto
 import mocker.dto.request.UserSignInRequestDto

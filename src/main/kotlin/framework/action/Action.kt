@@ -1,6 +1,6 @@
 package framework.action
 
-import framework.dto.Request
+import framework.request.Request
 
 interface Action<in P, out R> {
     fun act(

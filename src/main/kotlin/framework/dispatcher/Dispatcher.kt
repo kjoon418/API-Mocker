@@ -2,8 +2,8 @@ package framework.dispatcher
 
 import framework.action.Action
 import framework.action.ActionResponse
-import framework.dto.Request
-import framework.dto.Response
+import framework.request.Request
+import framework.response.Response
 import framework.exception.ExceptionResponseHandler
 import framework.request.HttpBodyMapper
 import framework.response.ResponseMapper

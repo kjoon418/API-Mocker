@@ -1,7 +1,7 @@
 package framework.exception
 
 import framework.constants.HttpStatus
-import framework.dto.Response
+import framework.response.Response
 import org.slf4j.LoggerFactory
 
 class ExceptionResponseHandler {

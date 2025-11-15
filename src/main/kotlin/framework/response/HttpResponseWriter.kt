@@ -1,7 +1,6 @@
 package framework.response
 
 import framework.config.ConfigProperty
-import framework.dto.Response
 import jakarta.servlet.http.HttpServletResponse
 
 class HttpResponseWriter {

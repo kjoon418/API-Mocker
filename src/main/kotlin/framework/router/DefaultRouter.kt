@@ -2,7 +2,7 @@ package framework.router
 
 import framework.action.Action
 import framework.constants.HttpMethod
-import framework.dto.Request
+import framework.request.Request
 import framework.exception.IllegalRequestException
 
 class DefaultRouter(
