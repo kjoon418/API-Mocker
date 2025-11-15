@@ -9,7 +9,7 @@ import org.reflections.util.ClasspathHelper
 import org.reflections.util.ConfigurationBuilder
 
 object HttpActionScanner : ActionScanner {
-    override fun scan(basePackages: List<String>): Map<RouteKey, Action<*, *>> {
+    override fun scan(basePackages: List<String>): Actions {
         val reflections = buildReflections(basePackages)
         val types = reflections.findTypesOfHttpAction()
 
@@ -34,13 +34,18 @@ object HttpActionScanner : ActionScanner {
             .filter { Action::class.java.isAssignableFrom(it) }
     }
 
-    private fun buildActionRegistry(actionTypes: List<Class<*>>): Map<RouteKey, Action<*, *>> {
-        return actionTypes.flatMap { actionClass ->
-            val annotation = actionClass.httpActionAnnotation
-            val actionInstance = instantiateAction(actionClass)
+    private fun buildActionRegistry(actionTypes: List<Class<*>>): Actions {
+        val actions = Actions()
 
-            annotation.toRouteKeys().map { Pair(it, actionInstance) }
-        }.toMap()
+        for (actionType in actionTypes) {
+            val annotation = actionType.httpActionAnnotation
+            val actionInstance = instantiateAction(actionType)
+
+            annotation.toRouteKeys()
+                .forEach { actions.register(it, actionInstance) }
+        }
+
+        return actions
     }
 
     private val Class<*>.httpActionAnnotation: HttpAction
